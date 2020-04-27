@@ -1,0 +1,63 @@
+ackage edu.ti.caih313.recursion.simple;
+
+import java.util.Scanner;
+
+public class RecursionHomework {
+
+    //Write a recursive method that will compute the number of odd digits in a number.
+    public static int getNumberofOddDigits(int x){
+        int odd;
+        if(x == 0) {
+            odd = 0;
+        }
+        else if (x < 10) {
+            if (x % 2 =! 0){
+                odd = 1;
+            }
+        }
+        else {
+            int count = x % 10;
+            if (count % 2 == 1){
+                odd = getNumberofOddDigits(x/10) + 1;
+            }
+            else {
+                odd = getNumberofOddDigits(x/10);
+            }
+        }
+        return odd;
+    }
+
+    //Write a recursive method that will compute the sum of the digits in a positive number
+    public static int getSumOfDigitinPositiveNumber(int x){
+        int sum;
+        if (x == 0){
+            sum = 0;
+        }
+        else if (x < 10){
+            sum = x
+        }
+        else {
+            sum += x % 10;
+            sum += getSumOfDigitinPositiveNumber(x/10);
+        }
+
+        //Complete a recursive definition of the following method:
+        public static int computeTenToThe(int n){
+            int result;
+            if (n == 0){
+                return = 1;
+            }
+            else if (n == 1){
+                result = 10;
+            }
+            else if (n == 2){
+                result = 100;
+            }
+            else if (n % 2 == 0){
+                int halfOfResult = computeTenToThe((n-1)/2);
+                result = 10 * halfOfResult * halfOfResult;
+            }
+            return result;
+        }
+    }
+}

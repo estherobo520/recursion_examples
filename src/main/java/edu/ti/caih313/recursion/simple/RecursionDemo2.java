@@ -16,16 +16,27 @@ public class RecursionDemo2 {
      * Precondition: n >= 0
      * Returns the number of zero digits in n.
      */
-    public static int getNumberOfZeros(int n) {
+    public static int getNumberOfZeros(int n, String prefix) {
+        System.out.println(prefix + "Entering getNumberOfZeros with " + n);
         int result;
-        if (n == 0)
+        if (n == 0) {
+            System.out.println("Setting result to 1 because n is equal to 0");
             result = 1;
-        else if (n < 10)
+        }
+        else if (n < 10) {
+            System.out.println("Setting result to 0 because n is equal to " + n);
             result = 0; //n has one digit that is not 0
-        else if (n % 10 == 0)
-            result = getNumberOfZeros(n / 10) + 1;
+        }
+        else if (n % 10 == 0) {
+            System.out.println("Calling getNumberOfZeros with " + (n / 10));
+            result = getNumberOfZeros(n / 10, "-" + prefix) + 1;
+        }
         else //n % 10 != 0
-            result = getNumberOfZeros(n / 10);
+        {
+            System.out.println("Calling getNumberOfZeros with " + (n / 10));
+            result = getNumberOfZeros(n / 10, "-" + prefix);
+        }
+        System.out.println(prefix + "Exiting getNumberOfZeros with " + n);
         return result;
     }
 }

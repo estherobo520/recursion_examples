@@ -8,7 +8,7 @@ public class RecursionDemo2 {
         Scanner keyboard = new Scanner(System.in);
         int number = keyboard.nextInt();
         System.out.println(number + " contains " +
-                getNumberOfZeros(number) + " zeros.");
+                getNumberOfZeros(number, "> ") + " zeros.");
     }
 
 
@@ -20,21 +20,18 @@ public class RecursionDemo2 {
         System.out.println(prefix + "Entering getNumberOfZeros with " + n);
         int result;
         if (n == 0) {
-            System.out.println("Setting result to 1 because n is equal to 0");
+            System.out.println(prefix + "setting result to 1, because n == 0");
             result = 1;
-        }
-        else if (n < 10) {
-            System.out.println("Setting result to 0 because n is equal to " + n);
+        } else if (n < 10) {
+            System.out.println(prefix + "setting result to 0 because n = " + n);
             result = 0; //n has one digit that is not 0
-        }
-        else if (n % 10 == 0) {
-            System.out.println("Calling getNumberOfZeros with " + (n / 10));
-            result = getNumberOfZeros(n / 10, "-" + prefix) + 1;
-        }
-        else //n % 10 != 0
-        {
-            System.out.println("Calling getNumberOfZeros with " + (n / 10));
-            result = getNumberOfZeros(n / 10, "-" + prefix);
+        } else if (n % 10 == 0) {
+            System.out.println(prefix + "found another zero");
+            System.out.println(prefix + "calling getNumberOfZeros with " + (n/10));
+            result = getNumberOfZeros(n / 10, "-"+prefix) + 1;
+        } else { //n % 10 != 0
+            System.out.println(prefix + "calling getNumberOfZeros with " + (n/10));
+            result = getNumberOfZeros(n / 10, "-"+prefix);
         }
         System.out.println(prefix + "Exiting getNumberOfZeros with " + n);
         return result;

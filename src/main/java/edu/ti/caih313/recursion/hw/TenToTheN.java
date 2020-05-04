@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 public class TenToTheN {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.print("Enter an integer: ");
         Scanner keyboard = new Scanner(System.in);
         int number = keyboard.nextInt();
@@ -15,10 +15,11 @@ public class TenToTheN {
         }
 
         BigInteger tenToNum = tenToTheN(number);
-        System.out.println("10^" + number + " =" + ((fraction)?" 1/":" ") + tenToNum);
+        String formattedTenToNum = TenToTheN.formatBigInteger(tenToNum, "");
+        System.out.println("10^" + number + " =" + ((fraction)?" 1/":" ") + formattedTenToNum);
     }
 
-   static BigInteger tenToTheN(int n) {
+    static BigInteger tenToTheN(int n) {
         BigInteger val;
         if (n == 0) {
             val = BigInteger.ONE;
@@ -32,5 +33,21 @@ public class TenToTheN {
             }
         }
         return val;
+    }
+
+    static BigInteger ONE_THOUSAND = BigInteger.valueOf(1000);
+
+    static String formatBigInteger(BigInteger val, String suffix)
+    {
+        String formattedNumber;
+        if (val.compareTo(ONE_THOUSAND) < 0)
+        {
+            formattedNumber = val.toString() + suffix;
+        }
+        else
+        {
+            formattedNumber = formatBigInteger(val.divide(ONE_THOUSAND), ",000" + suffix);
+        }
+        return formattedNumber;
     }
 }

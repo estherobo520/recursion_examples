@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class TenToTheNPrimitive {
      public static void main(String[] args) {
-        System.out.print("Enter an doubleeger: ");
-        Scanner keyboard = new Scanner(System.in);
-        double number = keyboard.nextInt();
-        boolean fraction = false;
-        if (number < 0) {
-            number = -1 * number;
-            fraction = true;
-        }
+         System.out.print("Enter an doubleeger: ");
+         Scanner keyboard = new Scanner(System.in);
+         double number = keyboard.nextInt();
+         boolean fraction = false;
+         if (number < 0) {
+             number = -1 * number;
+             fraction = true;
+         }
 
-        double tenToNum = tenToTheN(number);
-        System.out.println("10^" + number + " =" + ((fraction)?" 1/":" ") + tenToNum);
-    }
+         double tenToNum = tenToTheN(number);
+         System.out.println("10^" + number + " =" + ((fraction)?" 1/":" ") + tenToNum);
+     }
 
-   static double tenToTheN(double n) {
+    static double tenToTheN(double n) {
         double val;
         if (n == 0) {
             val = 1;

@@ -40,8 +40,7 @@ public class MergeSort {
     //Precondition: a.length = firstHalf.length + lastHalf.length.
     //Postcondition: All the elements of a are divided
     //between the arrays firstHalf and lastHalf.
-    private static void divide(int[] a, int[] firstHalf,
-                               int[] lastHalf String prefix) {
+    private static void divide(int[] a, int[] firstHalf, int[] lastHalf, String prefix) {
         System.out.println("Entering divide(a.length = " + a.length + "; firstHalf.length = " + firstHalf.length + "; lastHalf.length = " + lastHalf.length + ")");
         int copiesFirstHalf = 0;
         int copiesLastHalf = 0;
